@@ -10,10 +10,10 @@ app.use(express.static('public'));
 
 // Create a connection to the MySQL database
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'registerdb',
+  host: 'bs4vloudm3utlpfqavll-mysql.services.clever-cloud.com',
+  user: 'urqcisxvchkh30os',
+  password: 'h097SJOJx7sex5tqZkqP',
+  database: 'bs4vloudm3utlpfqavll',
 });
 
 // Middleware to parse form data
