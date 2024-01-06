@@ -166,9 +166,9 @@ function checkPasswordStrength() {
   strengthIndicator.value = strength;
 
   // Check passwordStrengthInput rules
-  ruleLength.innerHTML = passwordStrengthInput.length >= 8 ? '✔️ At least 8 characters' : '❗ At least 8 characters';
-  ruleUppercase.innerHTML = /[A-Z]/.test(passwordStrengthInput) ? '✔️ At least one uppercase letter' : '❗ At least one uppercase letter';
-  ruleLowercase.innerHTML = /[a-z]/.test(passwordStrengthInput) ? '✔️ At least one lowercase letter' : '❗ At least one lowercase letter';
-  ruleNumber.innerHTML = /[0-9]/.test(passwordStrengthInput) ? '✔️ At least one number' : '❗ At least one number';
-  ruleSpecial.innerHTML = /[^A-Za-z0-9]/.test(passwordStrengthInput) ? '✔️ At least one special character' : '❗ At least one special character';
+  ruleLength.innerHTML = passwordStrengthInput.length >= 8 ? '✔️ At least 8 characters' : '❌ At least 8 characters';
+  ruleUppercase.innerHTML = /[A-Z]/.test(passwordStrengthInput) ? '✔️ At least one uppercase letter' : '❌ At least one uppercase letter';
+  ruleLowercase.innerHTML = /[a-z]/.test(passwordStrengthInput) ? '✔️ At least one lowercase letter' : '❌ At least one lowercase letter';
+  ruleNumber.innerHTML = /[0-9]/.test(passwordStrengthInput) ? '✔️ At least one number' : '❌ At least one number';
+  ruleSpecial.innerHTML = /[^A-Za-z0-9]/.test(passwordStrengthInput) ? '✔️ At least one special character' : '❌ At least one special character';
 }
