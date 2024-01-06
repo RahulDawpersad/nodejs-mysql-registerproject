@@ -14,6 +14,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script src="https://kit.fontawesome.com/655b3b7e45.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/module.css" />
   </head>
   <body>
@@ -50,7 +51,19 @@
           onclick="togglePasswordVisibility()"
         ></span>
        </div>
+      <!-- Password Rules/Policy -->
+       <div id="password-strength-indicator">
+        <progress id="strength" value="0" max="100"></progress>
+        <ul id="password-rules">
+          <li id="rule-length">At least 8 characters</li>
+          <li id="rule-uppercase">At least one uppercase letter</li>
+          <li id="rule-lowercase">At least one lowercase letter</li>
+          <li id="rule-number">At least one number</li>
+          <li id="rule-special">At least one special character</li>
+        </ul>
+      </div>
       <span id="password-error"></span>
+      
       <br />
       <label for="confirm_password">Confirm Password:</label>
       <div class="password-container">
