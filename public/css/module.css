@@ -33,6 +33,11 @@ form input, .alert, #btnSubmit{
     height: 3em;
 }
 
+form #btnSubmit{
+    line-height: 0;
+    margin: 1.5em 0;
+}
+
 form .radio{
     margin: 0.4em 0.5em;
 }
@@ -44,11 +49,11 @@ form .radio{
   .password-toggle {
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 14px;
     transform: translateY(-50%);
-    width: 20px;
+    width: 24px;
     height: 20px;
-    background-image: url('../img/eye.png');
+    background-image: url('../img/eye.svg');
     background-size: cover;
     cursor: pointer;
   }
@@ -56,14 +61,56 @@ form .radio{
   .passwordConfirmtoggle{
     position: absolute;
     top: 50%;
-    right: 10px;
+    right: 14px;
     transform: translateY(-50%);
-    width: 20px;
+    width: 24px;
     height: 20px;
-    background-image: url('../img/eye.png');
+    background-image: url('../img/eye.svg');
     background-size: cover;
     cursor: pointer;
   }
+
+  /* Password Rules/Policy Styling */
+  #password-strength-indicator {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  #password-rules {
+    list-style-type: none;
+    padding: 0;
+    display: none;
+  }
+  
+  #password-rules li {
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  progress {
+    width: 100%;
+    display: none;
+    /* background: #fff; */
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: red;
+  }
+  
+  progress::-moz-progress-bar {
+    background-color: rgb(255, 166, 0);
+  }
+  
+  progress::-ms-fill {
+    background-color: rgb(0, 255, 55);
+  }
+  
+  progress[value="100"]::-webkit-progress-value,
+  progress[value="100"]::-moz-progress-bar,
+  progress[value="100"]::-ms-fill {
+    background: green;
+  }
+  
 
 @media(max-width: 800px){
     body{
