@@ -155,8 +155,6 @@ function checkPasswordStrength() {
     strengthIndicator.style.display = 'none';
   }
 
-
-
   // Check passwordStrengthInput strength
   var strength = 0;
   if (passwordStrengthInput.length >= 8) strength += 20;
