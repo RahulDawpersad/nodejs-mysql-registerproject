@@ -116,10 +116,10 @@ function togglePasswordVisibility() {
   var passwordToggle = document.querySelector('.password-toggle');
   if (passInput.type === 'password') {
     passInput.type = 'text';
-    passwordToggle.style.backgroundImage = "url('../img/hide.png')";
+    passwordToggle.style.backgroundImage = "url('../img/hide.svg')";
   } else {
     passInput.type = 'password';
-    passwordToggle.style.backgroundImage = "url('../img/eye.png')";
+    passwordToggle.style.backgroundImage = "url('../img/eye.svg')";
   }
 }
 
@@ -128,10 +128,49 @@ function toggleConfirmPasswordVisibility() {
   var passwordConfirmtoggle = document.querySelector('.passwordConfirmtoggle');
   if (confirmPassInput.type === 'password') {
     confirmPassInput.type = 'text';
-    passwordConfirmtoggle.style.backgroundImage = "url('../img/hide.png')";
+    passwordConfirmtoggle.style.backgroundImage = "url('../img/hide.svg')";
   } else {
     confirmPassInput.type = 'password';
-    passwordConfirmtoggle.style.backgroundImage = "url('../img/eye.png')";
+    passwordConfirmtoggle.style.backgroundImage = "url('../img/eye.svg')";
   }
 }
 
+// PASSWORD STRENGTH CHECK
+function checkPasswordStrength() {
+  let passwordStrengthInput = passInput.value;
+  var strengthIndicator = document.getElementById('strength');
+  var ruleLength = document.getElementById('rule-length');
+  var ruleUppercase = document.getElementById('rule-uppercase');
+  var ruleLowercase = document.getElementById('rule-lowercase');
+  var ruleNumber = document.getElementById('rule-number');
+  var ruleSpecial = document.getElementById('rule-special');
+  var ruleList = document.getElementById('password-rules');
+
+  // Show rules when the user starts typing
+  if (passwordStrengthInput.length > 0) {
+    ruleList.style.display = 'block';
+    strengthIndicator.style.display = 'block';
+  }else {
+    ruleList.style.display = 'none';
+    strengthIndicator.style.display = 'none';
+  }
+
+
+
+  // Check passwordStrengthInput strength
+  var strength = 0;
+  if (passwordStrengthInput.length >= 8) strength += 20;
+  if (/[A-Z]/.test(passwordStrengthInput)) strength += 20;
+  if (/[a-z]/.test(passwordStrengthInput)) strength += 20;
+  if (/[0-9]/.test(passwordStrengthInput)) strength += 20;
+  if (/[^A-Za-z0-9]/.test(passwordStrengthInput)) strength += 20;
+
+  strengthIndicator.value = strength;
+
+  // Check passwordStrengthInput rules
+  ruleLength.innerHTML = passwordStrengthInput.length >= 8 ? '✔️ At least 8 characters' : '❗ At least 8 characters';
+  ruleUppercase.innerHTML = /[A-Z]/.test(passwordStrengthInput) ? '✔️ At least one uppercase letter' : '❗ At least one uppercase letter';
+  ruleLowercase.innerHTML = /[a-z]/.test(passwordStrengthInput) ? '✔️ At least one lowercase letter' : '❗ At least one lowercase letter';
+  ruleNumber.innerHTML = /[0-9]/.test(passwordStrengthInput) ? '✔️ At least one number' : '❗ At least one number';
+  ruleSpecial.innerHTML = /[^A-Za-z0-9]/.test(passwordStrengthInput) ? '✔️ At least one special character' : '❗ At least one special character';
+}
