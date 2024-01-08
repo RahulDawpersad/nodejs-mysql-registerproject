@@ -33,6 +33,11 @@ form input, .alert, #btnSubmit{
     height: 3em;
 }
 
+.alert{
+  width: 17em; 
+  height: 4.15em;
+}
+
 form #btnSubmit{
     line-height: 0;
     margin: 1.5em 0;
