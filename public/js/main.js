@@ -68,25 +68,57 @@ function validatePassword() {
   let password = passInput.value;
   let passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-  if (!password.match(passwordPattern)) {
+  if (password === '') {
+    showError(passError, "Do not leave password field blank!");
+  } else if (!password.match(passwordPattern)) {
     showError(passError, "Invalid Password!");
   } else {
     showSuccess(passError, "Valid Password");
   }
-  validateConfirmPassword();
+  // Remove the error message for confirm password field
+  if (confirmPassInput.value !== '') {
+    validateConfirmPassword();
+  }
 }
 
 function validateConfirmPassword() {
   let password = passInput.value;
   let confirmPassword = confirmPassInput.value;
 
-  if (password !== confirmPassword) {
+  if (confirmPassword === '') {
+    showError(confirmPassError, "Password field must not be empty");
+  } else if (password !== confirmPassword) {
     showError(confirmPassError, "Passwords do not match!");
   } else {
     showSuccess(confirmPassError, "Passwords match");
   }
   updateSignUpButtonState();
 }
+
+
+// function validatePassword() {
+//   let password = passInput.value;
+//   let passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+//   if (!password.match(passwordPattern)) {
+//     showError(passError, "Invalid Password!");
+//   } else {
+//     showSuccess(passError, "Valid Password");
+//   }
+//   validateConfirmPassword();
+// }
+
+// function validateConfirmPassword() {
+//   let password = passInput.value;
+//   let confirmPassword = confirmPassInput.value;
+
+//   if (password !== confirmPassword) {
+//     showError(confirmPassError, "Passwords do not match!");
+//   } else {
+//     showSuccess(confirmPassError, "Passwords match");
+//   }
+//   updateSignUpButtonState();
+// }
 
 
 function showError(element, message) {
