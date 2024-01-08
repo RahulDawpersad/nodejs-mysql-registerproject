@@ -70,14 +70,16 @@ function validatePassword() {
 
   if (password === '') {
     showError(passError, "Do not leave password field blank!");
+    confirmPassInput.disabled = true; // Disable confirm password field
   } else if (!password.match(passwordPattern)) {
     showError(passError, "Invalid Password!");
+    confirmPassInput.disabled = true; // Disable confirm password field
   } else {
     showSuccess(passError, "Valid Password");
-  }
-  // Remove the error message for confirm password field
-  if (confirmPassInput.value !== '') {
-    validateConfirmPassword();
+    confirmPassInput.disabled = false; // Enable confirm password field
+    if (confirmPassInput.value !== '') {
+      validateConfirmPassword();
+    }
   }
 }
 
